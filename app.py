@@ -24,8 +24,6 @@ def create_app():
 
     from models import Users
 
-    create_database(app)
-
     login_manager = LoginManager()
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
@@ -35,7 +33,6 @@ def create_app():
         return Users.query.get(int(user_id))
 
     return app
-
 
 if __name__ == '__main__':
     app = create_app()
